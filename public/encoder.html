@@ -65,7 +65,16 @@
         $("#visible-message").val(),
         $("#hidden-message").val()
       );
-      navigator.clipboard.writeText(e);
+
+      // Check for clipboard permissions before writing
+      navigator.permissions
+        .query({ name: "clipboard-write" })
+        .then((result) => {
+          if (result.state == "granted" || result.state == "prompt") {
+            navigator.clipboard.writeText(e);
+          }
+        });
+
       $("#encoded-message").html(e);
       $(".form-results-container").show();
       _e = e;
