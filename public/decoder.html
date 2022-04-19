@@ -1,0 +1,63 @@
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/js/invisicoding.js"></script>
+  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+  <a href="/encoder.html" id="other-page-link">Try the Encoder</a>
+
+  <h1>InvisiDecoder</h1>
+  <form action="javascript:doDecode()">
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="encoded-message"
+        placeholder="Hello"
+      />
+      <label for="encoded-message">Encoded message</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">
+      Decode message
+    </button>
+
+    <div class="form-results-container">
+      <label>Secret message</label>
+      <button
+        class="copy-button"
+        onclick="navigator.clipboard.writeText(_d)"
+        type="button"
+      >
+        Copy
+      </button>
+      <div id="decoded-message"></div>
+    </div>
+  </form>
+
+  <footer>
+    <div>
+      A message coding system that hides a secret message in plain text by
+      embedding invisible characters in between visible ones.
+    </div>
+    <a
+      href="https://github.com/stephenlindauer/invisicoding"
+      target="github-invisicoding"
+    >
+      <img src="GitHub-Mark-Light-64px.png" />
+      github.com/stephenlindauer/invisicoding
+    </a>
+  </footer>
+
+  <script>
+    function doDecode() {
+      const d = invisicoding.decode($("#encoded-message").val());
+      $("#decoded-message").html(d);
+      $(".form-results-container").show();
+      _d = d;
+    }
+    var _d = "";
+    $(".form-results-container").hide();
+  </script>
+</html>

@@ -1,0 +1,70 @@
+body {
+    background-color: black;
+    padding: 10px;
+}
+
+#other-page-link {
+    text-decoration: none;
+    float: right;
+    margin: 20px;
+}
+
+#other-page-link:hover {
+    color: lime;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 100px;
+    font-weight: 100;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 60px;
+    }
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-results-container {
+    color: #AAA;
+    padding: 20px;
+    margin-top:20px;
+    background-color: #333;
+    border-radius: 8px;
+    min-height: 80px;
+}
+
+.form-results-container label {
+    font-size: 12px;
+    color: #888;
+}
+
+.copy-button {
+    float: right;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #888;
+    font-weight: 100;
+}
+footer div {
+    margin: 10px;
+}
+footer img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+}
+footer a {
+    text-decoration: none;
+    color: #888;
+}

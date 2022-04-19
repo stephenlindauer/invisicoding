@@ -1,0 +1,21 @@
+{
+  "name": "invisicoding",
+  "version": "1.0.0",
+  "description": "Provides an encoder and decoder for embedding secret messages into plain text using invisible characters",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/app.js",
+    "package": "browserify src/invisicoding.js -s invisicoding | uglifyjs --compress --mangle > public/js/invisicoding.js",
+    "package-dev": "browserify src/invisicoding.js -s invisicoding > public/js/invisicoding.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "express": "^4.17.3",
+    "uglify-js": "^3.15.4"
+  }
+}

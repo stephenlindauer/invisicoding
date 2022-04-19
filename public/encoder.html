@@ -1,0 +1,76 @@
+<html>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/js/invisicoding.js"></script>
+  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+  <a href="/decoder.html" id="other-page-link">Try the Decoder</a>
+
+  <h1>InvisiEncoder</h1>
+  <form action="javascript:doEncode()">
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="visible-message"
+        placeholder="Never gonna give you up"
+      />
+      <label for="visible-message">Visible message</label>
+    </div>
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        id="hidden-message"
+        placeholder="this is a secret"
+      />
+      <label for="hidden-message">Hidden message</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">
+      Encode message
+    </button>
+
+    <div class="form-results-container">
+      <label>Encoded message</label>
+      <button
+        class="copy-button"
+        onclick="navigator.clipboard.writeText(_e)"
+        type="button"
+      >
+        Copy
+      </button>
+      <div id="encoded-message">This is a secret</div>
+    </div>
+  </form>
+
+  <footer>
+    <div>
+      A message coding system that hides a secret message in plain text by
+      embedding invisible characters in between visible ones.
+    </div>
+    <a
+      href="https://github.com/stephenlindauer/invisicoding"
+      target="github-invisicoding"
+    >
+      <img src="GitHub-Mark-Light-64px.png" />
+      github.com/stephenlindauer/invisicoding
+    </a>
+  </footer>
+
+  <script>
+    function doEncode() {
+      const e = invisicoding.encode(
+        $("#visible-message").val(),
+        $("#hidden-message").val()
+      );
+      navigator.clipboard.writeText(e);
+      $("#encoded-message").html(e);
+      $(".form-results-container").show();
+      _e = e;
+    }
+    var _e = "";
+    $(".form-results-container").hide();
+  </script>
+</html>
