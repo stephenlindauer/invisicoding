@@ -34,6 +34,12 @@ In practice, this ends up looking like:
 
 `I‬⁫n⁬​v⁬⁬i⁬⁬s⁪​icoding` (Working example, copy the text and [go try it out for yourself!](https://invisicoding.herokuapp.com/decoder.html))
 
+I made a separate debugging key using ASCII codes for the numbers 0 - 9 which helps visualize this. (See Code > Debugging for details.)
+
+`I41n70v77i77s80icoding`
+
+Here you can see the character codes embedded in the visible message.
+
 ## Code
 
 The code is pretty simple and has a few accompanying tests in [src/invisicoding.js](/src/invisicoding.js). You can build and run your own copy of the web UI with `npm run start`. If you make any changes to the source, you'll need to repackage it for use in browser with `npm run package` or `npm run package-dev` (the `package` command minifies and uglifies the output where-as `package-dev` does not). Or you can use the code directly in terminal:
@@ -50,6 +56,9 @@ undefined
 'Invisicoding'
 ```
 
+**Debugging**
+
+In the source file, there is an additional key provided and commented out that swaps the invisible characters out for ASCII characters 0-9. Using this instead allows you to visualize our character codes in the text.
 
 --
 I discovered the infamous invisible character in my bash command <8 hours ago and threw this whole thing together. It currently has it's limitations. It was designed to only accept ASCII characters between 32 (space) and 126 (~). It could be extended to accept more characters by expanding to 3+ invisible characters but was out of scope for my simple demo. If you have feedback or suggestions, please open a ticket and I'd love to hear them!
